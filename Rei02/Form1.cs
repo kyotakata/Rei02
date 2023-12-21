@@ -5,6 +5,8 @@ namespace Rei02
         public Form1()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            treeView1.HideSelection = false;
         }
     }
 }
