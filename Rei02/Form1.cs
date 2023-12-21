@@ -21,6 +21,16 @@ namespace Rei02
             k.Add(a);
             a.Add(a1);
             a.Add(a2);
+
+            var kNode = new TreeNode(k.Name, 0, 0);
+            var aNode = new TreeNode(a.Name, 0, 0);
+            var a1Node = new TreeNode(a1.Name, 0, 0);
+            var a2Node = new TreeNode(a2.Name, 0, 0);
+
+            treeView1.Nodes.Add(kNode);
+            kNode.Nodes.Add(aNode);
+            aNode.Nodes.Add(a1Node);
+            aNode.Nodes.Add(a2Node);
         }
     }
 }
