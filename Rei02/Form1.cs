@@ -76,6 +76,39 @@ namespace Rei02
             }
 
             area.Alarm();
+            SetImage();
+        }
+
+        private void SetImage()
+        {
+            foreach (TreeNode node in treeView1.Nodes)
+            {
+                SetImageMethod(node)
+            }
+        }
+
+        private void SetImageMethod(TreeNode node)
+        {
+            var area = node.Tag as AreaBase;
+            if (area != null)
+            {
+                if (area.GetCondition() == Condition.Alarm)
+                {
+                    node.ImageIndex = 1;
+                    node.SelectedImageIndex = 1;
+                }
+                else
+                {
+                    node.ImageIndex = 0;
+                    node.SelectedImageIndex = 0;
+
+                }
+            }
+
+            foreach (TreeNode child in node.Nodes)
+            {
+                SetImageMethod(child);
+            }
         }
     }
 }
