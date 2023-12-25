@@ -66,5 +66,16 @@ namespace Rei02
                 AddNode(child, node);
             }
         }
+
+        private void AlarmButton_Click(object sender, EventArgs e)
+        {
+            var area = treeView1.SelectedNode.Tag as AreaBase;
+            if (area == null)
+            {
+                return;
+            }
+
+            area.Alarm();
+        }
     }
 }

@@ -18,6 +18,11 @@ namespace Rei02.Area
             _areas.Add(area);
         }
 
+        public override void Alarm()
+        {
+            throw new ArgumentException("一括警報設定はできません");
+        }
+
         public override IEnumerable<AreaBase> GetChildren()
         {
             return _areas;
