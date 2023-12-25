@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rei02.Buhin.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Rei02.Area
     internal sealed class BlockArea : AreaBase
     {
         private List<AreaBase> _areas = new List<AreaBase>();
-        public BlockArea(string name) : base(name)
+        public BlockArea(KaisouEntity entity) : base(entity)
         {
         }
 

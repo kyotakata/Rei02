@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rei02.Buhin.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Rei02.Area
     {
         private Condition _condition = Condition.Normal;
 
-        public MeasureArea(string name) : base(name)
+        public MeasureArea(KaisouEntity entity) : base(entity)
         {
         }
 

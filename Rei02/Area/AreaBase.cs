@@ -1,13 +1,20 @@
-﻿namespace Rei02.Area
+﻿using Rei02.Buhin.Data;
+
+namespace Rei02.Area
 {
     internal abstract class AreaBase
     {
-        public AreaBase(string name)
+        private KaisouEntity _entity;
+        public AreaBase(KaisouEntity entity)
         {
-            Name = name;
+            _entity = entity;
         }
 
-        public string Name { get; }
+        public int Id => _entity.Id;
+
+        public int ParentId => _entity.PearentId;
+
+        public string Name => _entity.Name;
 
         public abstract void Add(AreaBase area);
 

@@ -1,10 +1,13 @@
 using Rei02.Area;
+using Rei02.Buhin.Data;
 using System.Xml.Linq;
 
 namespace Rei02
 {
     public partial class Form1 : Form
     {
+        private List<AreaBase> _areas = new List<AreaBase>();
+
         public Form1()
         {
             InitializeComponent();
@@ -14,21 +17,21 @@ namespace Rei02
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var k = new BlockArea("関東");
-            var a = new BlockArea("東京");
-            var a1 = new MeasureArea("立川");
-            var a2 = new MeasureArea("三鷹");
+            //var k = new BlockArea("関東");
+            //var a = new BlockArea("東京");
+            //var a1 = new MeasureArea("立川");
+            //var a2 = new MeasureArea("三鷹");
 
-            var s = new BlockArea("四国");
-            var b = new BlockArea("香川");
-            var b1 = new MeasureArea("高松");
+            //var s = new BlockArea("四国");
+            //var b = new BlockArea("香川");
+            //var b1 = new MeasureArea("高松");
 
-            k.Add(a);
-            a.Add(a1);
-            a.Add(a2);
+            //k.Add(a);
+            //a.Add(a1);
+            //a.Add(a2);
 
-            s.Add(b);
-            b.Add(b1);
+            //s.Add(b);
+            //b.Add(b1);
 
             //var kNode = new TreeNode(k.Name, 0, 0);
             //var aNode = new TreeNode(a.Name, 0, 0);
@@ -39,6 +42,30 @@ namespace Rei02
             //kNode.Nodes.Add(aNode);
             //aNode.Nodes.Add(a1Node);
             //aNode.Nodes.Add(a2Node);
+
+            var entities = KaisouFake.GetData();
+
+            foreach (var entity in entities)
+            {
+                if (entity.Kind == 1)
+                {
+                    _areas.Add(new BlockArea(entity));
+                }
+                else if (entity.Kind == 2)
+                {
+                    _areas.Add(new MeasureArea(entity));
+
+                }
+            }
+
+            foreach (var area in _areas)
+            {
+                var parent = _areas.Find(x => x.Id == area.ParentId);
+                if (parent != null)
+                {
+                    parent.Add(area);
+                }
+            }
 
             AddNode(k, null);
             AddNode(s, null);
