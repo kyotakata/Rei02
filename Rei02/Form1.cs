@@ -48,7 +48,7 @@ namespace Rei02
 
         private void AddNode(AreaBase area, TreeNode? parentNode)
         {
-            var node = new TreeNode(area.Name, 0, 0);
+            var node = new TreeNode(area.Name, 0, 0);     // string text, int imageIndex, int selectedImageIndex
             node.Tag = area;
 
             if (parentNode == null)
