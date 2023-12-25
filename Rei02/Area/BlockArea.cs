@@ -27,5 +27,18 @@ namespace Rei02.Area
         {
             return _areas;
         }
+
+        public override Condition GetCondition()
+        {
+            foreach (var area in _areas)
+            {
+                if (area.GetCondition() == Condition.Alarm)
+                {
+                    return Condition.Alarm;
+                }
+            }
+
+            return Condition.Normal;
+        }
     }
 }

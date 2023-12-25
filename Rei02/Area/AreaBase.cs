@@ -14,6 +14,8 @@
         public abstract IEnumerable<AreaBase> GetChildren();
 
         public abstract void Alarm();
+
+        public abstract Condition GetCondition();
     }
 
     internal enum Condition

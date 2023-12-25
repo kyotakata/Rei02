@@ -83,7 +83,7 @@ namespace Rei02
         {
             foreach (TreeNode node in treeView1.Nodes)
             {
-                SetImageMethod(node)
+                SetImageMethod(node);
             }
         }
 

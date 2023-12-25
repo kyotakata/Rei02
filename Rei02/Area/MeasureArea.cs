@@ -29,5 +29,10 @@ namespace Rei02.Area
         {
             return new List<AreaBase>();
         }
+
+        public override Condition GetCondition()
+        {
+            return _condition;
+        }
     }
 }
