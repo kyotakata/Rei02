@@ -1,4 +1,5 @@
 using Rei02.Area;
+using System.Xml.Linq;
 
 namespace Rei02
 {
@@ -22,15 +23,38 @@ namespace Rei02
             a.Add(a1);
             a.Add(a2);
 
-            var kNode = new TreeNode(k.Name, 0, 0);
-            var aNode = new TreeNode(a.Name, 0, 0);
-            var a1Node = new TreeNode(a1.Name, 0, 0);
-            var a2Node = new TreeNode(a2.Name, 0, 0);
+            //var kNode = new TreeNode(k.Name, 0, 0);
+            //var aNode = new TreeNode(a.Name, 0, 0);
+            //var a1Node = new TreeNode(a1.Name, 0, 0);
+            //var a2Node = new TreeNode(a2.Name, 0, 0);
 
-            treeView1.Nodes.Add(kNode);
-            kNode.Nodes.Add(aNode);
-            aNode.Nodes.Add(a1Node);
-            aNode.Nodes.Add(a2Node);
+            //treeView1.Nodes.Add(kNode);
+            //kNode.Nodes.Add(aNode);
+            //aNode.Nodes.Add(a1Node);
+            //aNode.Nodes.Add(a2Node);
+
+            AddNode(k, null);
+        }
+
+        private void AddNode(AreaBase area, TreeNode? parentNode)
+        {
+            var node = new TreeNode(area.Name, 0, 0);
+            node.Tag = area;
+
+            if (parentNode == null)
+            {
+                treeView1.Nodes.Add(node);
+
+            }
+            else
+            {
+                parentNode.Nodes.Add(node);
+            }
+
+            foreach (var child in area.GetChildren())
+            {
+                AddNode(child, node);
+            }
         }
     }
 }
