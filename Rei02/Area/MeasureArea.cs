@@ -34,5 +34,13 @@ namespace Rei02.Area
         {
             return _condition;
         }
+
+        public override void Release()
+        {
+            // DBの登録など・・・
+
+            _condition = Condition.Normal;
+
+        }
     }
 }

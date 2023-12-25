@@ -33,6 +33,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.AlarmButton = new System.Windows.Forms.Button();
+            this.ReleaseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // treeView1
@@ -58,17 +59,28 @@
             // 
             this.AlarmButton.Location = new System.Drawing.Point(440, 28);
             this.AlarmButton.Name = "AlarmButton";
-            this.AlarmButton.Size = new System.Drawing.Size(156, 65);
+            this.AlarmButton.Size = new System.Drawing.Size(156, 41);
             this.AlarmButton.TabIndex = 1;
             this.AlarmButton.Text = "alarm";
             this.AlarmButton.UseVisualStyleBackColor = true;
             this.AlarmButton.Click += new System.EventHandler(this.AlarmButton_Click);
+            // 
+            // ReleaseButton
+            // 
+            this.ReleaseButton.Location = new System.Drawing.Point(440, 100);
+            this.ReleaseButton.Name = "ReleaseButton";
+            this.ReleaseButton.Size = new System.Drawing.Size(156, 41);
+            this.ReleaseButton.TabIndex = 2;
+            this.ReleaseButton.Text = "release";
+            this.ReleaseButton.UseVisualStyleBackColor = true;
+            this.ReleaseButton.Click += new System.EventHandler(this.ReleaseButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 608);
+            this.Controls.Add(this.ReleaseButton);
             this.Controls.Add(this.AlarmButton);
             this.Controls.Add(this.treeView1);
             this.Name = "Form1";
@@ -83,5 +95,6 @@
         private TreeView treeView1;
         private ImageList imageList1;
         private Button AlarmButton;
+        private Button ReleaseButton;
     }
 }

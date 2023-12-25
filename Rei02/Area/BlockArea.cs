@@ -40,5 +40,13 @@ namespace Rei02.Area
 
             return Condition.Normal;
         }
+
+        public override void Release()
+        {
+            foreach (var area in _areas)
+            {
+                area.Release();
+            }
+        }
     }
 }

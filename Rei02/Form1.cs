@@ -79,6 +79,20 @@ namespace Rei02
             SetImage();
         }
 
+        private void ReleaseButton_Click(object sender, EventArgs e)
+        {
+            var area = treeView1.SelectedNode.Tag as AreaBase;
+            if (area == null)
+            {
+                return;
+            }
+
+            area.Release();
+            SetImage();
+
+        }
+
+
         private void SetImage()
         {
             foreach (TreeNode node in treeView1.Nodes)
@@ -110,5 +124,6 @@ namespace Rei02
                 SetImageMethod(child);
             }
         }
+
     }
 }
