@@ -19,9 +19,16 @@ namespace Rei02
             var a1 = new MeasureArea("óßêÏ");
             var a2 = new MeasureArea("éOëÈ");
 
+            var s = new BlockArea("élçë");
+            var b = new BlockArea("çÅêÏ");
+            var b1 = new MeasureArea("çÇèº");
+
             k.Add(a);
             a.Add(a1);
             a.Add(a2);
+
+            s.Add(b);
+            b.Add(b1);
 
             //var kNode = new TreeNode(k.Name, 0, 0);
             //var aNode = new TreeNode(a.Name, 0, 0);
@@ -34,6 +41,9 @@ namespace Rei02
             //aNode.Nodes.Add(a2Node);
 
             AddNode(k, null);
+            AddNode(s, null);
+
+            treeView1.ExpandAll();
         }
 
         private void AddNode(AreaBase area, TreeNode? parentNode)

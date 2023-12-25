@@ -17,5 +17,10 @@ namespace Rei02.Area
         {
             _areas.Add(area);
         }
+
+        public override IEnumerable<AreaBase> GetChildren()
+        {
+            return _areas;
+        }
     }
 }

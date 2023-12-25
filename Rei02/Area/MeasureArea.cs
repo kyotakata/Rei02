@@ -16,5 +16,10 @@ namespace Rei02.Area
         {
             throw new ArgumentException("Addはできません");
         }
+
+        public override IEnumerable<AreaBase> GetChildren()
+        {
+            return new List<AreaBase>();
+        }
     }
 }
