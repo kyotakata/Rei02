@@ -39,6 +39,17 @@ namespace Rei02
                     _areas.Add(new MeasureArea(entity));
 
                 }
+                else if(entity.Kind == 99)
+                {
+                    _areas.Add(new LargeBlockArea(entity));
+
+                }
+                else if (entity.Kind == 3)
+                {
+                    _areas.Add(new MeasureAreaV2(entity));
+
+                }
+
             }
 
             // eqŠÖŒW‚ğì‚é
