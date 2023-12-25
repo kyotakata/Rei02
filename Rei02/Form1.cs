@@ -17,6 +17,7 @@ namespace Rei02
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // データを作る
             //var k = new BlockArea("関東");
             //var a = new BlockArea("東京");
             //var a1 = new MeasureArea("立川");
@@ -25,24 +26,6 @@ namespace Rei02
             //var s = new BlockArea("四国");
             //var b = new BlockArea("香川");
             //var b1 = new MeasureArea("高松");
-
-            //k.Add(a);
-            //a.Add(a1);
-            //a.Add(a2);
-
-            //s.Add(b);
-            //b.Add(b1);
-
-            //var kNode = new TreeNode(k.Name, 0, 0);
-            //var aNode = new TreeNode(a.Name, 0, 0);
-            //var a1Node = new TreeNode(a1.Name, 0, 0);
-            //var a2Node = new TreeNode(a2.Name, 0, 0);
-
-            //treeView1.Nodes.Add(kNode);
-            //kNode.Nodes.Add(aNode);
-            //aNode.Nodes.Add(a1Node);
-            //aNode.Nodes.Add(a2Node);
-
             var entities = KaisouFake.GetData();
 
             foreach (var entity in entities)
@@ -58,6 +41,13 @@ namespace Rei02
                 }
             }
 
+            // 親子関係を作る
+            //k.Add(a);
+            //a.Add(a1);
+            //a.Add(a2);
+
+            //s.Add(b);
+            //b.Add(b1);
             foreach (var area in _areas)
             {
                 var parent = _areas.Find(x => x.Id == area.ParentId);
@@ -67,8 +57,24 @@ namespace Rei02
                 }
             }
 
-            AddNode(k, null);
-            AddNode(s, null);
+            // ルートを投げている
+            //AddNode(k, null);
+            //AddNode(s, null);
+            var roots = _areas.FindAll(x => x.ParentId == 0);
+            foreach (var root in roots)
+            {
+                AddNode(root, null);
+            }
+
+            //var kNode = new TreeNode(k.Name, 0, 0);
+            //var aNode = new TreeNode(a.Name, 0, 0);
+            //var a1Node = new TreeNode(a1.Name, 0, 0);
+            //var a2Node = new TreeNode(a2.Name, 0, 0);
+
+            //treeView1.Nodes.Add(kNode);
+            //kNode.Nodes.Add(aNode);
+            //aNode.Nodes.Add(a1Node);
+            //aNode.Nodes.Add(a2Node);
 
             treeView1.ExpandAll();
         }
