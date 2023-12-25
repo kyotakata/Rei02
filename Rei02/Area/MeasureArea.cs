@@ -17,7 +17,7 @@ namespace Rei02.Area
 
         public override void Add(AreaBase area)
         {
-            throw new ArgumentException("Addはできません");
+            throw new ArgumentException($"Addはできません this.Id ={Id} arg.Id={area.Id}");
         }
 
         public override void Alarm()
